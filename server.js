@@ -3,6 +3,8 @@ const mysql = require('mysql2');
 const inputCheck = require('./utils/inputCheck');
 
 const PORT = process.env.PORT || 3001;
+const DBUSER= process.env.DBUSER;
+const DBPASS= process.env.DBPASS;
 const app = express();
 
 
@@ -13,8 +15,8 @@ app.use(express.json());
 const db = mysql.createConnection(
     {
         host: 'localhost',
-        user: '',
-        password: '',
+        user: DBUSER,
+        password: DBPASS,
         database: 'election'
     },
     console.log('Connected to the election database.')
